@@ -26,7 +26,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           aria-invalid={!!error}
           aria-describedby={error ? `${textareaId}-error` : undefined}
           className={cn(
-            "block h-20 w-full resize-none rounded-xl border border-transparent bg-gray-50 p-3 text-sm text-gray-800",
+            "block h-20 w-full resize-none rounded-xl border border-gray-200 bg-gray-50 p-3 text-sm text-gray-800",
             "placeholder-gray-400 transition-all focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500",
             error && "bg-red-50/40 ring-1 ring-red-300 focus:ring-red-500",
             className

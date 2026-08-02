@@ -40,7 +40,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             aria-invalid={!!error}
             aria-describedby={error ? `${selectId}-error` : undefined}
             className={cn(
-              "block w-full appearance-none rounded-xl border border-transparent bg-gray-50 px-4 py-3 pr-9 text-sm text-gray-800",
+              "block w-full appearance-none rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 pr-9 text-sm text-gray-800",
               "transition-all focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500",
               error && "bg-red-50/40 ring-1 ring-red-300 focus:ring-red-500",
               className
