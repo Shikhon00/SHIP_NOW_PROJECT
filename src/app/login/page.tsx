@@ -27,7 +27,7 @@ export default function LoginPage() {
             </span>
             <h2 className="mb-2 text-3xl font-bold text-gray-900">Welcome Back</h2>
             <p className="text-sm text-gray-500">
-              Log in to continue managing your logistics with ShipNow
+              Log in to continue managing your logistics with ShipNow.
             </p>
           </div>
 
