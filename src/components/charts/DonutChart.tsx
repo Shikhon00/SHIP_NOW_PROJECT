@@ -1,6 +1,7 @@
 "use client";
 
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
+import { cn } from "@/lib/utils";
 
 interface DonutSlice {
   label: string;
@@ -13,9 +14,17 @@ interface DonutChartProps {
   centerLabel?: string;
   centerValue?: string;
   size?: number;
+  /** "light" (default) = for white/gray cards. "dark" = for cards like Warehouse's Capacity Usage. */
+  variant?: "light" | "dark";
 }
 
-export function DonutChart({ data, centerLabel, centerValue, size = 208 }: DonutChartProps) {
+export function DonutChart({
+  data,
+  centerLabel,
+  centerValue,
+  size = 208,
+  variant = "light",
+}: DonutChartProps) {
   return (
     <div className="relative mx-auto" style={{ width: size, height: size }}>
       <ResponsiveContainer width="100%" height="100%">
@@ -46,7 +55,16 @@ export function DonutChart({ data, centerLabel, centerValue, size = 208 }: Donut
               {centerLabel}
             </p>
           )}
-          {centerValue && <p className="text-3xl font-extrabold text-slate-900">{centerValue}</p>}
+          {centerValue && (
+            <p
+              className={cn(
+                "text-3xl font-extrabold",
+                variant === "dark" ? "text-white" : "text-slate-900"
+              )}
+            >
+              {centerValue}
+            </p>
+          )}
         </div>
       )}
     </div>
