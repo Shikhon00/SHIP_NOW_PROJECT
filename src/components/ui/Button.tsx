@@ -1,4 +1,5 @@
-import { ButtonHTMLAttributes, forwardRef } from "react";
+import { ButtonHTMLAttributes, forwardRef, type ReactNode } from "react";
+import Link, { type LinkProps } from "next/link";
 import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -76,3 +77,38 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 );
 
 Button.displayName = "Button";
+
+export interface ButtonLinkProps extends LinkProps {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  className?: string;
+  children?: ReactNode;
+}
+
+/**
+ * Same look as Button, but renders a Next <Link> instead of a <button> —
+ * use this for anything that navigates (e.g. "New Shipment" -> /shipments/new)
+ * rather than nesting a <button> inside an <a>.
+ */
+export function ButtonLink({
+  variant = "primary",
+  size = "md",
+  className,
+  children,
+  ...props
+}: ButtonLinkProps) {
+  return (
+    <Link
+      className={cn(
+        "inline-flex items-center justify-center rounded-xl font-semibold transition-colors",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
+        variantClasses[variant],
+        sizeClasses[size],
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </Link>
+  );
+}

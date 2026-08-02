@@ -12,7 +12,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { PageHeader } from "@/components/layout/PageHeader";
-import { Button } from "@/components/ui/Button";
+import { Button, ButtonLink } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { StatCard } from "@/components/ui/StatCard";
 import { Badge } from "@/components/ui/Badge";
@@ -151,9 +151,9 @@ export default function ShipmentsPage() {
         title="Shipments"
         breadcrumb={[{ label: "Dashboard", href: "/dashboard" }, { label: "Shipments" }]}
       >
-        <Button variant="primary">
+        <ButtonLink href="/shipments/new" variant="primary">
           <Plus className="h-4 w-4" /> New Shipment
-        </Button>
+        </ButtonLink>
       </PageHeader>
 
       <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">

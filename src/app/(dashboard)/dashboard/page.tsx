@@ -1,5 +1,5 @@
 import { Search, Plus } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { ButtonLink } from "@/components/ui/Button";
 import { KpiSection } from "@/components/dashboard/KpiSection";
 import { ShipmentStatisticCard } from "@/components/dashboard/ShipmentStatisticCard";
 import { ProfitSummaryCard } from "@/components/dashboard/ProfitSummaryCard";
@@ -26,9 +26,9 @@ export default function DashboardPage() {
               className="w-80 rounded-xl border border-gray-100 bg-white py-3 pl-11 pr-4 text-sm shadow-sm outline-none focus:ring-2 focus:ring-brand-500/20"
             />
           </div>
-          <Button variant="primary">
+          <ButtonLink href="/shipments/new" variant="primary">
             <Plus className="h-4 w-4" /> Add New Shipping
-          </Button>
+          </ButtonLink>
         </div>
       </header>
 

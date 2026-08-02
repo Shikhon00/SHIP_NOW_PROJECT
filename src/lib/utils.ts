@@ -38,3 +38,14 @@ export function truncate(text: string, max: number) {
 export function getInitial(name: string) {
   return name.trim().charAt(0).toUpperCase();
 }
+
+/**
+ * Generates a placeholder shipment ID for the "auto-generated" field on the
+ * Create Shipment form, e.g. "#SH9583742". Call client-side only (after
+ * mount) — it's random, so calling it during SSR would cause a hydration
+ * mismatch.
+ */
+export function generateShipmentId() {
+  const digits = Math.floor(1_000_000 + Math.random() * 9_000_000);
+  return `#SH${digits}`;
+}
