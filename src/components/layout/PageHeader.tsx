@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { ReactNode } from "react";
 
 interface BreadcrumbItem {
@@ -10,15 +10,28 @@ interface BreadcrumbItem {
 interface PageHeaderProps {
   title: string;
   breadcrumb?: BreadcrumbItem[];
+  /** Shows a back-chevron before the title, e.g. on Create Shipment. */
+  backHref?: string;
   /** Right-aligned slot: search box, "New Shipment" button, freight-type tabs, etc. */
   children?: ReactNode;
 }
 
-export function PageHeader({ title, breadcrumb, children }: PageHeaderProps) {
+export function PageHeader({ title, breadcrumb, backHref, children }: PageHeaderProps) {
   return (
     <header className="mb-8 flex flex-wrap items-center justify-between gap-4">
       <div>
-        <h1 className="text-2xl font-bold text-slate-900 sm:text-3xl">{title}</h1>
+        <div className="flex items-center gap-2">
+          {backHref && (
+            <Link
+              href={backHref}
+              aria-label="Go back"
+              className="text-gray-400 transition-colors hover:text-gray-600"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </Link>
+          )}
+          <h1 className="text-2xl font-bold text-slate-900 sm:text-3xl">{title}</h1>
+        </div>
 
         {breadcrumb && breadcrumb.length > 0 && (
           <nav className="mt-1 flex items-center gap-1 text-xs font-medium text-gray-400">
